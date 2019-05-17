@@ -1,0 +1,30 @@
+﻿@page
+@model iqviaPracticalExam.Areas.TweetCollector.Pages.ListTweetsModel
+@{
+    ViewData["Title"] = "ListTweets";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ListTweets</h1>
+    <h2>This is iqvia's Practical Exam</h2>
+    <br />
+    <p>Will Collect and Display Tweets betwen 2016 and 2017 relative to the Zulu Time of the location where this server is installed.</p>
+    <table id="tweetTable" class="table table-bordered table-hover" data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-filter-control="true" data-show-columns="true" data-toolbar="#toolbar" data-pagination="true" data-show-pagination-switch="true" data-pagination-V-Align="top" data-page-list="[10, 25, 50, 100, ALL]" data-url="/api/v1/PullTweetBatch" data-filter>
+        <thead>
+            <tr>
+                <th data-field="id" data-sortable="true" style="white-space:nowrap" data-filter-control="input">
+                    <b>Tweed Id:</b>
+                </th>
+                <th data-field="stamp" data-sortable="true" style="white-space:nowrap" data-filter-control="input">
+                    <b>Date:</b>
+                </th>
+                <th data-field="text" data-sortable="true" style="white-space:nowrap" data-filter-control="input">
+                    <b>Content:</b>
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+
+</div>
+<div class="row"><br /></div>

@@ -23,6 +23,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
         public string StartDateString = "";
         public string IntervalledDateString = "";
         public string EndDateString = "";
+        public long IterationCounter = 0;
         public int TweetCountDivider = 5;
 
 
@@ -64,6 +65,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
             {
                 
                 client = new RestClient("https://badapi.iqvia.io/api/v1/Tweets?startDate=" + StartDateString + "&endDate=" + IntervalledDateString);
+                IterationCounter = IterationCounter + 1;
                 response = client.Execute(request);
                 objects.AddRange(JsonConvert.DeserializeObject<List<iqviaTweetObject>>(response.Content));
 
@@ -110,7 +112,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
 
 
 
-
+            
             //Distinct The List of Tweets.
             objects = objects.GroupBy(t => t.id).Select(g => g.First()).ToList();
 

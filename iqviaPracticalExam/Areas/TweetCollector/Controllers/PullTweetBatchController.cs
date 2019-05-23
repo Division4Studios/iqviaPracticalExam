@@ -35,7 +35,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
             //Set Initial Dates
             StartDate = DateTime.Parse("2016-01-01T00:00:00Z", null, DateTimeStyles.RoundtripKind);
             IntervalledDate = DateTime.Parse("2016-01-02T00:00:00Z", null, DateTimeStyles.RoundtripKind);
-            EndDate = DateTime.Parse("2017-01-01T00:00:00Z", null, DateTimeStyles.RoundtripKind);
+            EndDate = DateTime.Parse("2017-12-31T00:00:00Z", null, DateTimeStyles.RoundtripKind);
 
             //Set Initial Date Strings for Query
             StartDateString = StartDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffK", CultureInfo.InvariantCulture);
@@ -75,7 +75,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
                     {
                         TweetCountDivider = 1;
                     }
-                    IntervalledDate = IntervalledDate.AddDays(-TweetCountDivider);
+                    IntervalledDate = StartDate.AddDays(TweetCountDivider);
                     IntervalledDateString = IntervalledDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffK", CultureInfo.InvariantCulture);
                     continue;
                 }
@@ -85,7 +85,7 @@ namespace iqviaPracticalExam.Areas.TweetCollector.Controllers
                 StartDateString = StartDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffK", CultureInfo.InvariantCulture);
                 IntervalledDate = IntervalledDate.AddDays(5);
                 IntervalledDateString = IntervalledDate.ToString("yyyy-MM-dd'T'HH:mm:ss.fffK", CultureInfo.InvariantCulture);
-                TweetCountDivider = 10;
+                TweetCountDivider = 5;
 
                 //Time BreakPoint Used to Test Time Reduction at final limits.
                 //if (IntervalledDate > EndDate)
